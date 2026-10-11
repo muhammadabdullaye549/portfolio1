@@ -1,3 +1,4 @@
+
 // ================================
 // 1. MOBIL MENYU
 // ================================
@@ -7,44 +8,38 @@ const navLinks = document.querySelector("#navLinks");
 const navItems = document.querySelectorAll(".nav-link");
 
 function closeMenu() {
+    if (!menuToggle || !navLinks) return;
+
     menuToggle.classList.remove("open");
     navLinks.classList.remove("open");
-
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "Menyuni ochish");
 }
 
-menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
 
-    menuToggle.classList.toggle("open", isOpen);
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Menyuni yopish" : "Menyuni ochish"
-    );
-});
-
-// Menyu bandini bosganda menyu yopiladi
-navItems.forEach((link) => {
-    link.addEventListener("click", () => {
-        closeMenu();
+        menuToggle.classList.toggle("open", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Menyuni yopish" : "Menyuni ochish"
+        );
     });
-});
 
-// Escape tugmasi orqali menyuni yopish
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeMenu();
-    }
-});
+    navItems.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
 
-// Katta ekranga o'tganda mobil menyuni yopish
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 700) {
-        closeMenu();
-    }
-});
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 700) closeMenu();
+    });
+}
 
 
 // ================================
@@ -77,7 +72,6 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
         revealObserver.observe(element);
     });
 } else {
-    // Eski brauzerlarda animatsiyasiz hamma bo'limni ko'rsatish
     revealElements.forEach((element) => {
         element.classList.add("visible");
     });
@@ -138,14 +132,21 @@ const profilePlaceholder = document.querySelector(".profile-placeholder");
 
 if (profileImage && profilePlaceholder) {
     function checkProfileImage() {
-        if (profileImage.complete && profileImage.naturalWidth === 0) {
+        if (profileImage.naturalWidth > 0) {
+            profileImage.style.display = "block";
+            profilePlaceholder.style.display = "none";
+        } else {
             profileImage.style.display = "none";
             profilePlaceholder.style.display = "grid";
         }
     }
 
+    profileImage.addEventListener("load", checkProfileImage);
     profileImage.addEventListener("error", checkProfileImage);
-    checkProfileImage();
+
+    if (profileImage.complete) {
+        checkProfileImage();
+    }
 }
 
 console.log("Muhammad Portfolio muvaffaqiyatli ishga tushdi! 🚀");

@@ -1,17 +1,11 @@
-/* =========================
-   1. ASOSIY SOZLAMALAR
-========================= */
 
 :root {
     --bg: #0b0f19;
-    --bg-soft: #101624;
     --card: #111827;
     --green: #a3ff12;
-    --green-soft: #c3ff65;
     --text: #f5f7fb;
     --muted: #9aa6b8;
     --border: #273247;
-    --radius: 18px;
     --container: 1120px;
 }
 
@@ -23,7 +17,7 @@
 }
 
 html {
-    scroll-padding-top: 100px;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -34,25 +28,22 @@ body {
     overflow-x: hidden;
 }
 
-body, button, a {
-    -webkit-tap-highlight-color: transparent;
-}
-
 a {
     color: inherit;
     text-decoration: none;
-}
-
-button {
-    font: inherit;
 }
 
 ul {
     list-style: none;
 }
 
-img {
-    max-width: 100%;
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--green);
+    color: #101609;
 }
 
 .container {
@@ -64,16 +55,6 @@ section {
     scroll-margin-top: 85px;
 }
 
-::selection {
-    background: var(--green);
-    color: #101609;
-}
-
-:focus-visible {
-    outline: 2px solid var(--green);
-    outline-offset: 5px;
-}
-
 .gradient-text {
     background: linear-gradient(110deg, #a3ff12, #e0ff9a);
     -webkit-background-clip: text;
@@ -81,14 +62,10 @@ section {
     color: transparent;
 }
 
-/* =========================
-   2. ORQA FON EFFEKTLARI
-========================= */
-
 .bg-glow {
     position: fixed;
-    width: 380px;
-    height: 380px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     filter: blur(120px);
     opacity: 0.09;
@@ -104,22 +81,19 @@ section {
 
 .glow-two {
     background: #4778ff;
-    right: -220px;
     top: 650px;
+    right: -220px;
 }
 
-/* =========================
-   3. HEADER VA NAVBAR
-========================= */
+/* NAVBAR */
 
 .header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(11, 15, 25, 0.88);
+    background: rgba(11, 15, 25, 0.92);
     backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(39, 50, 71, 0.8);
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar {
@@ -131,9 +105,8 @@ section {
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 23px;
     font-weight: 900;
-    letter-spacing: -0.7px;
     white-space: nowrap;
 }
 
@@ -144,14 +117,14 @@ section {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 26px;
 }
 
 .nav-link {
     color: var(--muted);
     font-size: 13px;
-    font-weight: 600;
-    transition: color 0.25s ease;
+    font-weight: 700;
+    transition: color 0.25s;
 }
 
 .nav-link:hover,
@@ -174,11 +147,10 @@ section {
 }
 
 .menu-toggle span {
-    display: block;
     width: 19px;
     height: 2px;
+    background: white;
     border-radius: 3px;
-    background: var(--text);
     transition: 0.25s;
 }
 
@@ -194,25 +166,20 @@ section {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* =========================
-   4. TUGMALAR
-========================= */
+/* BUTTONS */
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    min-height: 48px;
-    padding: 12px 21px;
+    gap: 10px;
+    min-height: 47px;
+    padding: 12px 20px;
     border: 1px solid transparent;
     border-radius: 10px;
     font-size: 13px;
     font-weight: 800;
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+    transition: 0.25s;
 }
 
 .btn:hover {
@@ -222,37 +189,33 @@ section {
 .btn-primary {
     color: #101609;
     background: var(--green);
-    box-shadow: 0 5px 25px rgba(163, 255, 18, 0.1);
 }
 
 .btn-primary:hover {
-    background: var(--green-soft);
-    box-shadow: 0 10px 35px rgba(163, 255, 18, 0.2);
+    box-shadow: 0 10px 30px #a3ff1230;
 }
 
 .btn-outline {
     color: var(--text);
-    background: rgba(255, 255, 255, 0.02);
+    background: transparent;
     border-color: var(--border);
 }
 
 .btn-outline:hover {
-    border-color: var(--green);
     color: var(--green);
+    border-color: var(--green);
 }
 
-/* =========================
-   5. HERO BO'LIMI
-========================= */
+/* HERO */
 
 .hero {
     min-height: 660px;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
-    gap: 55px;
-    padding-top: 75px;
-    padding-bottom: 100px;
+    gap: 45px;
+    padding-top: 70px;
+    padding-bottom: 90px;
 }
 
 .hero-text {
@@ -264,27 +227,26 @@ section {
     align-items: center;
     gap: 9px;
     padding: 7px 13px;
-    margin-bottom: 28px;
+    margin-bottom: 25px;
     border: 1px solid var(--border);
     border-radius: 100px;
+    background: #111827aa;
     color: #cbd5e1;
-    background: rgba(17, 24, 39, 0.75);
     font-size: 11px;
 }
 
 .status-dot {
-    display: inline-block;
     width: 8px;
     height: 8px;
     flex-shrink: 0;
     border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 12px rgba(163, 255, 18, 0.6);
+    box-shadow: 0 0 12px #a3ff1280;
     animation: pulse 2s infinite;
 }
 
 .eyebrow {
-    margin-bottom: 18px;
+    margin-bottom: 17px;
     color: var(--green);
     font-size: 11px;
     font-weight: 900;
@@ -292,17 +254,17 @@ section {
 }
 
 .hero h1 {
-    margin-bottom: 25px;
+    margin-bottom: 23px;
     font-size: clamp(37px, 5vw, 61px);
     line-height: 1.15;
-    letter-spacing: -2.5px;
+    letter-spacing: -2px;
 }
 
 .hero-description {
     max-width: 570px;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     color: var(--muted);
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.9;
 }
 
@@ -315,14 +277,11 @@ section {
 .hero-socials {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-top: 35px;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 30px;
     color: var(--muted);
     font-size: 12px;
-}
-
-.hero-socials a {
-    transition: color 0.2s;
 }
 
 .hero-socials a:hover {
@@ -333,9 +292,7 @@ section {
     color: #526078;
 }
 
-/* =========================
-   6. PROFIL RASMI
-========================= */
+/* PROFIL RASMI */
 
 .hero-visual {
     position: relative;
@@ -355,52 +312,52 @@ section {
     padding: 7px;
     border: 2px solid var(--green);
     border-radius: 50%;
-    background: linear-gradient(145deg, #24351a, #111827);
-    box-shadow:
-        0 0 50px rgba(163, 255, 18, 0.1),
-        inset 0 0 30px rgba(163, 255, 18, 0.06);
+    background: linear-gradient(145deg, #24351a, #141c2c);
+    box-shadow: 0 0 60px #a3ff1220;
     overflow: hidden;
     animation: float 4s ease-in-out infinite;
 }
 
 .profile-image {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
     border-radius: 50%;
+    display: block;
+    z-index: 2;
 }
 
 .profile-placeholder {
+    position: absolute;
+    inset: 7px;
     display: none;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
     place-content: center;
+    justify-items: center;
+    gap: 8px;
     text-align: center;
-    background:
-        radial-gradient(circle at 50% 35%, #30451e, transparent 65%),
-        #111827;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #24351a, #141c2c);
 }
 
 .profile-placeholder span {
     color: var(--green);
-    font-size: clamp(45px, 7vw, 76px);
+    font-size: 65px;
     font-weight: 900;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .profile-placeholder small {
-    padding: 0 10px;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .orbit {
     position: absolute;
     width: 91%;
     aspect-ratio: 1;
-    border: 1px solid rgba(163, 255, 18, 0.2);
+    border: 1px solid #a3ff1230;
     border-radius: 50%;
 }
 
@@ -410,7 +367,7 @@ section {
 
 .orbit-two {
     transform: rotate(35deg) scaleY(0.72);
-    border-color: rgba(163, 255, 18, 0.12);
+    border-color: #a3ff121c;
 }
 
 .floating-card {
@@ -420,10 +377,10 @@ section {
     align-items: center;
     gap: 11px;
     padding: 12px 15px;
-    background: rgba(20, 29, 44, 0.94);
+    background: #141d2af2;
     border: 1px solid #35445b;
     border-radius: 13px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 40px #0004;
     animation: float 4s ease-in-out infinite;
 }
 
@@ -454,21 +411,17 @@ section {
     animation-delay: -2s;
 }
 
-.mini-icon {
-    color: var(--green);
-    font-size: 26px;
-}
-
+.mini-icon,
 .code-icon {
     color: var(--green);
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 900;
 }
 
 .decor {
     position: absolute;
     color: var(--green);
-    font-size: 28px;
+    font-size: 27px;
 }
 
 .decor-one {
@@ -481,15 +434,12 @@ section {
     bottom: 17%;
 }
 
-/* =========================
-   7. TEXNOLOGIYALAR QATORI
-========================= */
+/* TEXNOLOGIYALAR QATORI */
 
 .tech-strip {
-    width: 100%;
     padding: 22px 0;
     overflow: hidden;
-    background: rgba(17, 24, 39, 0.65);
+    background: #111827a8;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
 }
@@ -498,7 +448,7 @@ section {
     width: max-content;
     display: flex;
     align-items: center;
-    gap: 34px;
+    gap: 32px;
     animation: marquee 32s linear infinite;
 }
 
@@ -516,26 +466,24 @@ section {
     font-style: normal;
 }
 
-/* =========================
-   8. UMUMIY SECTION
-========================= */
+/* SECTIONLAR */
 
 .section {
-    padding-top: 110px;
-    padding-bottom: 30px;
+    padding-top: 105px;
+    padding-bottom: 25px;
 }
 
 .section-heading {
     max-width: 760px;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 .section-heading h2,
 .contact-box h2 {
-    margin-bottom: 20px;
+    margin-bottom: 19px;
     font-size: clamp(30px, 4.5vw, 45px);
     line-height: 1.2;
-    letter-spacing: -1.3px;
+    letter-spacing: -1px;
 }
 
 .section-description {
@@ -545,9 +493,7 @@ section {
     line-height: 1.9;
 }
 
-/* =========================
-   9. MEN HAQIMDA KARTALARI
-========================= */
+/* MEN HAQIMDA */
 
 .about-grid {
     display: grid;
@@ -556,32 +502,32 @@ section {
 }
 
 .about-card {
-    padding: 28px;
+    padding: 27px;
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: 18px;
     background: linear-gradient(145deg, #151d2c, #101522);
     transition: transform 0.3s, border-color 0.3s;
 }
 
 .about-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(163, 255, 18, 0.6);
+    border-color: #a3ff1290;
 }
 
 .about-icon {
-    width: 48px;
-    height: 48px;
+    width: 47px;
+    height: 47px;
     display: grid;
     place-items: center;
-    margin-bottom: 22px;
-    border: 1px solid rgba(163, 255, 18, 0.18);
+    margin-bottom: 20px;
+    border: 1px solid #a3ff122e;
     border-radius: 13px;
-    background: rgba(163, 255, 18, 0.07);
-    font-size: 23px;
+    background: #a3ff1210;
+    font-size: 22px;
 }
 
 .about-card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     font-size: 17px;
 }
 
@@ -591,9 +537,7 @@ section {
     line-height: 1.9;
 }
 
-/* =========================
-   10. KO'NIKMALAR
-========================= */
+/* KO'NIKMALAR */
 
 .skills-grid {
     display: grid;
@@ -603,27 +547,23 @@ section {
 
 .skill-card {
     min-width: 0;
-    padding: 24px 20px;
+    padding: 23px 19px;
     border: 1px solid var(--border);
     border-radius: 16px;
     background: linear-gradient(145deg, #151d2c, #101522);
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .skill-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
     border-color: var(--green);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
 }
 
 .skill-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .skill-icon {
@@ -632,54 +572,18 @@ section {
     display: grid;
     place-items: center;
     border-radius: 13px;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 900;
 }
 
-.html-icon {
-    background: #352019;
-    color: #ff784b;
-}
-
-.css-icon {
-    background: #172d4e;
-    color: #65a7ff;
-}
-
-.js-icon {
-    background: #3c3519;
-    color: #ffe66d;
-    font-size: 14px;
-}
-
-.react-icon {
-    background: #153341;
-    color: #61dafb;
-    font-size: 29px;
-}
-
-.python-icon {
-    background: #23334d;
-    color: #ffd45a;
-}
-
-.telegram-icon {
-    background: #153341;
-    color: #56c7f2;
-    font-size: 25px;
-}
-
-.git-icon {
-    background: #3b251d;
-    color: #ff966d;
-    font-size: 25px;
-}
-
-.github-icon {
-    background: #292c37;
-    color: #f0f2f8;
-    font-size: 24px;
-}
+.html-icon { background: #352019; color: #ff784b; }
+.css-icon { background: #172d4e; color: #65a7ff; }
+.js-icon { background: #3c3519; color: #ffe66d; font-size: 14px; }
+.react-icon { background: #153341; color: #61dafb; font-size: 29px; }
+.python-icon { background: #23334d; color: #ffd45a; }
+.telegram-icon { background: #153341; color: #56c7f2; }
+.git-icon { background: #3b251d; color: #ff966d; }
+.github-icon { background: #292c37; color: #f0f2f8; font-size: 17px; }
 
 .skill-number {
     color: #627087;
@@ -689,7 +593,7 @@ section {
 
 .skill-card h3 {
     margin-bottom: 8px;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .skill-card > p {
@@ -716,9 +620,7 @@ section {
     font-size: 10px;
 }
 
-/* =========================
-   11. LOYIHALAR
-========================= */
+/* LOYIHALAR */
 
 .projects-grid {
     display: grid;
@@ -737,27 +639,25 @@ section {
 
 .project-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(163, 255, 18, 0.65);
+    border-color: #a3ff1290;
 }
 
 .project-preview {
     position: relative;
-    height: 225px;
+    height: 220px;
     display: grid;
     place-items: center;
     overflow: hidden;
 }
 
 .preview-one {
-    background:
-        radial-gradient(circle at 75% 25%, rgba(163, 255, 18, 0.2), transparent 35%),
-        linear-gradient(135deg, #192434, #0c111d);
+    background: radial-gradient(circle at 75% 25%, #a3ff1230, transparent 35%), linear-gradient(135deg, #192434, #0c111d);
 }
 
 .preview-code {
     z-index: 1;
     color: var(--green);
-    font-size: clamp(28px, 4vw, 43px);
+    font-size: 40px;
     font-weight: 900;
     letter-spacing: -2px;
 }
@@ -766,7 +666,7 @@ section {
     position: absolute;
     width: 190px;
     height: 190px;
-    border: 1px solid rgba(163, 255, 18, 0.3);
+    border: 1px solid #a3ff124d;
     border-radius: 50%;
     transform: translate(65px, 25px);
 }
@@ -785,12 +685,12 @@ section {
 }
 
 .todo-window {
-    width: min(78%, 280px);
+    width: 78%;
+    max-width: 280px;
     padding: 22px;
     border: 1px solid #3b4962;
     border-radius: 13px;
     background: #101725;
-    box-shadow: 0 15px 40px #0004;
 }
 
 .todo-window > span,
@@ -824,11 +724,9 @@ section {
     border-radius: 15px;
     background: #122235;
     text-align: center;
-    box-shadow: 0 15px 40px #0003;
 }
 
 .weather-window > span {
-    margin-bottom: 5px;
     color: #80d7ff;
 }
 
@@ -856,7 +754,8 @@ section {
 }
 
 .bot-window {
-    width: min(78%, 280px);
+    width: 78%;
+    max-width: 280px;
     padding: 20px;
     border: 1px solid #31544d;
     border-radius: 14px;
@@ -875,7 +774,7 @@ section {
 }
 
 .project-content {
-    padding: 25px;
+    padding: 24px;
 }
 
 .project-category {
@@ -909,7 +808,6 @@ section {
     border-top: 1px solid var(--border);
     font-size: 12px;
     font-weight: 800;
-    transition: color 0.2s;
 }
 
 .project-link span {
@@ -921,45 +819,38 @@ section {
     color: var(--green);
 }
 
-/* =========================
-   12. ALOQA
-========================= */
+/* ALOQA */
 
 .contact {
-    padding-bottom: 100px;
+    padding-bottom: 95px;
 }
 
 .contact-box {
     position: relative;
-    padding: 75px 30px;
+    padding: 70px 25px;
     overflow: hidden;
     border: 1px solid #34442c;
     border-radius: 24px;
-    background:
-        radial-gradient(ellipse at 50% 0%, rgba(163, 255, 18, 0.12), transparent 60%),
-        linear-gradient(145deg, #141d2a, #101522);
+    background: radial-gradient(ellipse at 50% 0%, #a3ff121f, transparent 60%), linear-gradient(145deg, #141d2a, #101522);
     text-align: center;
 }
 
-.contact-box .eyebrow {
+.contact-box h2,
+.contact-box .eyebrow,
+.contact-description,
+.contact-buttons,
+.contact-note {
     position: relative;
-}
-
-.contact-box h2 {
-    position: relative;
-    margin-bottom: 20px;
 }
 
 .contact-description {
-    position: relative;
     max-width: 510px;
-    margin: 0 auto 28px;
+    margin: 0 auto 27px;
     color: var(--muted);
     font-size: 14px;
 }
 
 .contact-buttons {
-    position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -967,12 +858,11 @@ section {
 }
 
 .contact-note {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 9px;
-    margin-top: 30px;
+    margin-top: 28px;
     color: #aab5c5;
     font-size: 11px;
 }
@@ -981,17 +871,15 @@ section {
     position: absolute;
     top: 15px;
     right: 7%;
-    color: rgba(163, 255, 18, 0.13);
+    color: #a3ff1220;
     font-size: 110px;
 }
 
-/* =========================
-   13. FOOTER
-========================= */
+/* FOOTER */
 
 .footer {
     border-top: 1px solid var(--border);
-    background: rgba(10, 14, 23, 0.7);
+    background: #0a0e17b3;
 }
 
 .footer-inner {
@@ -1012,57 +900,31 @@ section {
     font-size: 11px;
 }
 
-.back-top {
-    transition: color 0.2s;
-}
-
 .back-top:hover {
     color: var(--green);
 }
 
-/* =========================
-   14. ANIMATSIYALAR
-========================= */
+/* ANIMATSIYALAR */
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
 @keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-        box-shadow: 0 0 12px rgba(163, 255, 18, 0.5);
-    }
-
-    50% {
-        opacity: 0.55;
-        box-shadow: 0 0 3px rgba(163, 255, 18, 0.2);
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 @keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-/* JavaScript reveal animatsiyasi */
 .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.visible {
@@ -1070,214 +932,92 @@ section {
     transform: translateY(0);
 }
 
-/* =========================
-   15. PLANSHE T VA KICHIK EKRAN
-========================= */
+/* PLANS HET VA TELEFON */
 
 @media (max-width: 950px) {
-    .nav-links {
-        gap: 16px;
-    }
-
-    .nav-link {
-        font-size: 12px;
-    }
-
-    .hero {
-        gap: 25px;
-        min-height: 590px;
-    }
-
-    .hero h1 {
-        font-size: clamp(35px, 5vw, 49px);
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .skill-card > p {
-        min-height: auto;
-    }
+    .nav-links { gap: 15px; }
+    .nav-link { font-size: 12px; }
+    .hero { gap: 25px; }
+    .hero h1 { font-size: clamp(35px, 5vw, 49px); }
+    .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .skill-card > p { min-height: auto; }
 }
 
 @media (max-width: 700px) {
-    .container {
-        width: min(100% - 36px, var(--container));
-    }
+    .container { width: calc(100% - 36px); }
 
-    .navbar {
-        min-height: 70px;
-    }
+    .navbar { min-height: 70px; }
+    .logo { font-size: 20px; }
 
-    .logo {
-        font-size: 19px;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
+    .menu-toggle { display: flex; }
 
     .nav-links {
         position: absolute;
-        top: calc(100% + 1px);
+        top: 100%;
         left: 0;
         right: 0;
         display: none;
+        flex-direction: column;
         align-items: stretch;
         gap: 0;
         padding: 12px 18px 18px;
-        background: rgba(11, 15, 25, 0.98);
+        background: #0b0f19;
         border-bottom: 1px solid var(--border);
     }
 
-    .nav-links.open {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-link {
-        display: block;
-        padding: 12px 8px;
-        font-size: 14px;
-    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-link { display: block; padding: 12px 8px; font-size: 14px; }
 
     .hero {
         grid-template-columns: 1fr;
         gap: 40px;
         min-height: auto;
-        padding-top: 65px;
-        padding-bottom: 70px;
+        padding-top: 60px;
+        padding-bottom: 65px;
     }
 
-    .hero-text {
-        text-align: center;
-    }
+    .hero-text { text-align: center; }
+    .hero h1 { font-size: clamp(36px, 8vw, 49px); }
+    .hero-description { margin-inline: auto; }
+    .hero-buttons, .hero-socials { justify-content: center; }
 
-    .hero .status {
-        margin-bottom: 22px;
-    }
+    .hero-visual { width: min(100%, 360px); }
 
-    .hero h1 {
-        font-size: clamp(36px, 8vw, 49px);
-        letter-spacing: -1.8px;
-    }
+    .section { padding-top: 75px; }
+    .section-heading { margin-bottom: 30px; }
+    .section-heading h2, .contact-box h2 { font-size: clamp(29px, 7vw, 38px); }
 
-    .hero-description {
-        margin-inline: auto;
-        font-size: 14px;
-    }
+    .about-grid, .projects-grid { grid-template-columns: 1fr; }
+    .about-card { padding: 23px; }
+    .project-preview { height: 205px; }
 
-    .hero-buttons,
-    .hero-socials {
-        justify-content: center;
-    }
-
-    .hero-visual {
-        width: min(100%, 360px);
-    }
-
-    .section {
-        padding-top: 75px;
-    }
-
-    .section-heading {
-        margin-bottom: 30px;
-    }
-
-    .section-heading h2,
-    .contact-box h2 {
-        font-size: clamp(29px, 7vw, 38px);
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 13px;
-    }
-
-    .about-card {
-        padding: 23px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-preview {
-        height: 205px;
-    }
-
-    .contact {
-        padding-bottom: 70px;
-    }
-
-    .contact-box {
-        padding: 55px 20px;
-    }
+    .contact { padding-bottom: 65px; }
+    .contact-box { padding: 52px 18px; }
 
     .footer-inner {
-        padding-top: 22px;
-        padding-bottom: 22px;
+        padding: 22px 0;
         flex-wrap: wrap;
     }
 }
 
-/* =========================
-   16. JUDA KICHIK EKRAN
-========================= */
-
 @media (max-width: 380px) {
-    .container {
-        width: calc(100% - 28px);
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .floating-card {
-        padding: 9px 10px;
-    }
-
-    .floating-card strong {
-        font-size: 10px;
-    }
-
-    .floating-card small {
-        font-size: 8px;
-    }
-
-    .footer-inner {
-        justify-content: center;
-        text-align: center;
-    }
+    .container { width: calc(100% - 28px); }
+    .hero h1 { font-size: 34px; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons .btn { width: 100%; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .floating-card { padding: 9px 10px; }
+    .floating-card strong { font-size: 10px; }
+    .floating-card small { font-size: 8px; }
+    .footer-inner { justify-content: center; text-align: center; }
 }
 
-/* Animatsiyaga sezgir foydalanuvchilar uchun */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
     }
 
     .reveal {
