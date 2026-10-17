@@ -1,418 +1,653 @@
-
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="uz" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b0f19">
+    <meta name="theme-color" content="#090d16">
     <title>Muhammad Abdullayev | Portfolio</title>
+    <meta name="description" content="Muhammad Abdullayev — kelajakdagi veb-dasturchi (Web Developer). Zamonaviy veb-saytlar, interfeyslar va Telegram botlar yaratish bilan shug'ullanaman.">
+    <meta name="keywords" content="Muhammad Abdullayev, portfolio, web developer, frontend dasturchi, HTML, CSS, JavaScript, React, Python, O'zbekiston dasturchi">
+    <meta name="author" content="Muhammad Abdullayev">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Muhammad Abdullayev | Portfolio">
+    <meta property="og:description" content="Zamonaviy veb-saytlar va loyihalar yaratishga intiluvchi dasturchi portfoliosi.">
+    <meta property="og:image" content="gotman.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Muhammad Abdullayev | Portfolio">
+    <meta property="twitter:description" content="Zamonaviy veb-saytlar va loyihalar yaratishga intiluvchi dasturchi portfoliosi.">
+    
+    <!-- Favicon (SVG data URI) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%23090d16'/><text x='50' y='65' font-size='48' font-weight='900' font-family='sans-serif' text-anchor='middle' fill='%23a3ff12'>M</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- BLUR GLOW BACKGROUNDS -->
+<div class="bg-glow glow-one" aria-hidden="true"></div>
+<div class="bg-glow glow-two" aria-hidden="true"></div>
+
+<!-- HEADER / NAVBAR -->
 <header class="header">
     <nav class="navbar container">
-        <a href="#home" class="logo">Muhammad <span>Abdullayev</span></a>
+        <a href="#home" class="logo">
+            Muhammad <span class="logo-accent">Abdullayev</span>
+        </a>
 
-        <button class="menu-toggle" id="menuToggle"
-                aria-label="Menyuni ochish" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
+        <!-- NAV LINKS -->
+        <div class="nav-menu-wrapper" id="navMenuWrapper">
+            <ul class="nav-links" id="navLinks">
+                <li><a class="nav-link active" href="#home" data-i18n="nav_home">Bosh sahifa</a></li>
+                <li><a class="nav-link" href="#about" data-i18n="nav_about">Men haqimda</a></li>
+                <li><a class="nav-link" href="#skills" data-i18n="nav_skills">Ko‘nikmalar</a></li>
+                <li><a class="nav-link" href="#projects" data-i18n="nav_projects">Loyihalar</a></li>
+                <li><a class="nav-link" href="#contact" data-i18n="nav_contact">Aloqa</a></li>
+            </ul>
+        </div>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a class="nav-link active" href="#home">Bosh sahifa</a></li>
-            <li><a class="nav-link" href="#about">Men haqimda</a></li>
-            <li><a class="nav-link" href="#skills">Ko‘nikmalar</a></li>
-            <li><a class="nav-link" href="#projects">Loyihalar</a></li>
-            <li><a class="nav-link" href="#contact">Aloqa</a></li>
-        </ul>
-  
-<!-- TIL TANLASH -->
-<div class="language-switch">
-    <button type="button" data-lang="uz" class="lang-btn active">UZ</button>
-    <button type="button" data-lang="ru" class="lang-btn">RU</button>
-    <button type="button" data-lang="en" class="lang-btn">EN</button>
-</div>
+        <!-- HEADER ACTIONS -->
+        <div class="header-actions">
+            <!-- LANGUAGE SWITCH -->
+            <div class="language-switch" role="group" aria-label="Til tanlash">
+                <button type="button" data-lang="uz" class="lang-btn active" title="O‘zbekcha">UZ</button>
+                <button type="button" data-lang="ru" class="lang-btn" title="Русский">RU</button>
+                <button type="button" data-lang="en" class="lang-btn" title="English">EN</button>
+            </div>
 
-<!-- RANG REJIMI -->
-<button
-    type="button"
-    id="themeToggle"
-    class="theme-toggle"
-    aria-label="Rang rejimini almashtirish"
-    title="Rangni almashtirish"
->
-    🌙
-</button>
+            <!-- THEME TOGGLE -->
+            <button
+                type="button"
+                id="themeToggle"
+                class="theme-toggle"
+                aria-label="Rang rejimini almashtirish"
+                title="Mavzuni almashtirish"
+            >
+                <span class="theme-icon">🌙</span>
+            </button>
 
+            <!-- MOBILE BURGER BUTTON -->
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Menyuni ochish"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 </header>
 
-<div class="bg-glow glow-one"></div>
-<div class="bg-glow glow-two"></div>
-
+<!-- BACKDROP FOR MOBILE MENU -->
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
 
 <main>
-    <!-- BOSH SAHIFA -->
+    <!-- 1. BOSH SAHIFA / HERO -->
     <section class="hero container" id="home">
         <div class="hero-text reveal">
             <div class="status">
                 <span class="status-dot"></span>
-                Dasturlashni o‘rganyapman
+                <span data-i18n="hero_status">Dasturlashni o‘rganyapman</span>
             </div>
 
-            <p class="eyebrow">SALOM, MEN MUHAMMAD 👋</p>
+            <p class="eyebrow" data-i18n="hero_greeting">SALOM, MEN MUHAMMAD 👋</p>
 
-            <h1>
+            <h1 data-i18n="hero_title">
                 Men kelajakdagi<br>
                 <span class="gradient-text">Web Developer</span>man.
             </h1>
 
-            <p class="hero-description">
-                Men zamonaviy saytlar va foydali dasturlar yaratishni
-                o‘rganyapman. Maqsadim — kuchli dasturchi bo‘lish va
-                o‘z g‘oyalarimni haqiqiy loyihalarga aylantirish.
+            <p class="hero-description" data-i18n="hero_desc">
+                Men zamonaviy saytlar va foydali dasturlar yaratishni o‘rganyapman. Maqsadim — kuchli dasturchi bo‘lish va o‘z g‘oyalarimni haqiqiy loyihalarga aylantirish.
             </p>
 
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
+                <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">
                     Loyihalarimni ko‘rish ↗
                 </a>
-                <a href="#contact" class="btn btn-outline">
+                <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">
                     Men bilan bog‘lanish
+                </a>
+                <a href="#about" class="btn btn-ghost" data-i18n="hero_btn_cv">
+                    Rezyumeni ko‘rish (CV) ↓
                 </a>
             </div>
 
             <div class="hero-socials">
-                <span>Meni kuzating:</span>
-                <a href="https://github.com/" target="_blank"
-                   rel="noopener noreferrer">GitHub ↗</a>
+                <span class="socials-label" data-i18n="hero_follow">Meni kuzating:</span>
+                <a href="https://github.com/muhammadabdullaye549" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub ↗</span>
+                </a>
                 <span class="social-divider">/</span>
-                <a href="https://t.me/" target="_blank"
-                   rel="noopener noreferrer">Telegram ↗</a>
+                <a href="https://t.me/muhammad_abdullayev" target="_blank" rel="noopener noreferrer" class="social-link" title="Telegram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.943z"/></svg>
+                    <span>Telegram ↗</span>
+                </a>
             </div>
         </div>
 
-        <!-- RASMINGNI SHU YERGA QO'YASAN -->
+        <!-- HERO VISUAL -->
         <div class="hero-visual reveal">
             <div class="orbit orbit-one"></div>
             <div class="orbit orbit-two"></div>
 
             <div class="profile-circle">
                 <img
-                    src="muhammad.jpg"
-                    alt="Muhammadning rasmi"
+                    src="gotman.jpg"
+                    alt="Muhammad Abdullayev surati"
                     class="profile-image"
+                    loading="eager"
                 >
-
                 <div class="profile-placeholder">
                     <span>MA</span>
-                    <small>Rasmingni shu yerga qo‘y</small>
+                    <small>Muhammad Abdullayev</small>
                 </div>
             </div>
 
             <div class="floating-card floating-top">
                 <span class="mini-icon">✦</span>
                 <div>
-                    <strong>Creative Developer</strong>
-                    <small>Yangi g‘oyalar va kod</small>
+                    <strong data-i18n="float_top_title">Creative Developer</strong>
+                    <small data-i18n="float_top_desc">Yangi g‘oyalar va kod</small>
                 </div>
             </div>
 
             <div class="floating-card floating-bottom">
                 <span class="code-icon">&lt;/&gt;</span>
                 <div>
-                    <strong>HTML · CSS · JS</strong>
-                    <small>Har kuni yangi bilim</small>
+                    <strong data-i18n="float_bottom_title">HTML · CSS · JS</strong>
+                    <small data-i18n="float_bottom_desc">Har kuni yangi bilim</small>
                 </div>
             </div>
 
-            <span class="decor decor-one">✳</span>
-            <span class="decor decor-two">✦</span>
+            <span class="decor decor-one" aria-hidden="true">✳</span>
+            <span class="decor decor-two" aria-hidden="true">✦</span>
         </div>
     </section>
 
-    <!-- TEXNOLOGIYALAR -->
-    <div class="tech-strip">
+    <!-- TEXNOLOGIYALAR TICKER -->
+    <div class="tech-strip" aria-label="Texnologiyalar ro'yxati">
         <div class="tech-strip-inner">
-            <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i>
+            <span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i>
             <span>JAVASCRIPT</span><i>✦</i><span>REACT</span><i>✦</i>
             <span>PYTHON</span><i>✦</i><span>TELEGRAM BOT</span><i>✦</i>
-            <span>GIT</span><i>✦</i><span>GITHUB</span><i>✦</i>
-            <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i>
+            <span>GIT & GITHUB</span><i>✦</i><span>RESPONSIVE DESIGN</span><i>✦</i>
+            <span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i>
             <span>JAVASCRIPT</span><i>✦</i><span>REACT</span><i>✦</i>
             <span>PYTHON</span><i>✦</i><span>TELEGRAM BOT</span><i>✦</i>
-            <span>GIT</span><i>✦</i><span>GITHUB</span><i>✦</i>
+            <span>GIT & GITHUB</span><i>✦</i><span>RESPONSIVE DESIGN</span><i>✦</i>
         </div>
     </div>
 
-    <!-- MEN HAQIMDA -->
+    <!-- 2. MEN HAQIMDA / ABOUT -->
     <section class="section container" id="about">
         <div class="section-heading reveal">
-            <p class="eyebrow">MEN HAQIMDA</p>
-            <h2>Har kuni yangi bilim,<br>
+            <p class="eyebrow" data-i18n="about_eyebrow">MEN HAQIMDA</p>
+            <h2 data-i18n="about_title">
+                Har kuni yangi bilim,<br>
                 <span class="gradient-text">yangi imkoniyat.</span>
             </h2>
-            <p class="section-description">
-                Men dasturlashga qiziquvchi yosh o‘rganuvchiman.
-                Hozir veb-dasturlashni o‘rganyapman va o‘z portfolio
-                saytimni yanada yaxshilab boryapman.
+            <p class="section-description" data-i18n="about_desc">
+                Men dasturlashga qiziquvchi va maqsad sari intiluvchi yosh dasturchiman. Hozir zamonaviy veb-dasturlash (Frontend & Backend asoslari)ni chuqur o‘rganib, o‘z portfolio saytim va shaxsiy loyihalarim ustida amaliyot o‘tamoqdaman.
             </p>
         </div>
 
+        <!-- ABOUT CARDS -->
         <div class="about-grid">
             <article class="about-card reveal">
                 <div class="about-icon">🎯</div>
-                <h3>Maqsadim</h3>
-                <p>Kuchli dasturchi bo‘lish, haqiqiy loyihalar yaratish
-                   va bilimlarimni muntazam oshirish.</p>
+                <h3 data-i18n="about_card1_title">Mening maqsadim</h3>
+                <p data-i18n="about_card1_desc">Yuqori darajadagi kuchli dasturchi bo‘lish, foydalanuvchilar muammolarini hal qiluvchi haqiqiy loyihalar yaratish va xalqaro tajriba to‘plash.</p>
             </article>
 
             <article class="about-card reveal">
                 <div class="about-icon">💡</div>
-                <h3>Qiziqishlarim</h3>
-                <p>Veb-saytlar, dasturlash, yangi texnologiyalar va
-                   foydali raqamli mahsulotlar.</p>
+                <h3 data-i18n="about_card2_title">Qiziqishlarim</h3>
+                <p data-i18n="about_card2_desc">Zamonaviy va qulay veb-saytlar, interaktiv foydalanuvchi interfeyslari (UI/UX), sun'iy intellekt va avtomatlashtirish texnologiyalari.</p>
             </article>
 
             <article class="about-card reveal">
                 <div class="about-icon">🚀</div>
-                <h3>Rivojlanish</h3>
-                <p>Yangi bilimlarni amalda qo‘llash va kichik loyihalar
-                   orqali tajriba orttirish.</p>
+                <h3 data-i18n="about_card3_title">Rivojlanish yo‘li</h3>
+                <p data-i18n="about_card3_desc">Nazariy bilimlarni har kuni amaliy kod orqali mustahkamlash, Open Source loyihalarda ishtirok etish va yangi texnologiyalarni tez o‘zlashtirish.</p>
             </article>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar reveal">
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label" data-i18n="stat_topics">O‘rganilgan mavzular</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">4+</span>
+                <span class="stat-label" data-i18n="stat_projects">Tayyorlangan loyihalar</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label" data-i18n="stat_passion">O‘rganishga ishtiyoq</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label" data-i18n="stat_learning">Uzluksiz izlanish</span>
+            </div>
         </div>
     </section>
 
-    <!-- KO'NIKMALAR -->
+    <!-- 3. KO'NIKMALAR / SKILLS -->
     <section class="section container" id="skills">
         <div class="section-heading reveal">
-            <p class="eyebrow">MENING KO‘NIKMALARIM</p>
-            <h2>Men o‘rganayotgan<br>
+            <p class="eyebrow" data-i18n="skills_eyebrow">MENING KO‘NIKMALARIM</p>
+            <h2 data-i18n="skills_title">
+                Men o‘rganayotgan<br>
                 <span class="gradient-text">texnologiyalar.</span>
             </h2>
-            <p class="section-description">
-                Quyidagi texnologiyalar bilan tanishyapman va
-                ularni loyihalarimda ishlatishni o‘rganyapman.
+            <p class="section-description" data-i18n="skills_desc">
+                Quyidagi texnologiyalar bo‘yicha nazariy va amaliy bilimlarni chuqurlashtirib, zamonaviy andozalar asosida toza kod yozishni o‘rganmoqdaman.
             </p>
         </div>
 
         <div class="skills-grid">
+            <!-- 1. HTML -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon html-icon">5</div>
                     <span class="skill-number">01</span>
                 </div>
-                <h3>HTML</h3>
-                <p>Veb-sahifaning tuzilishini yaratish.</p>
-                <div class="skill-tags"><span>Structure</span><span>Forms</span></div>
+                <h3>HTML5</h3>
+                <p data-i18n="skill_html_desc">Semantik tuzilish, toza markup va SEO asoslari.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 90%;"></div>
+                </div>
+                <div class="skill-tags"><span>Semantics</span><span>Forms</span><span>SEO</span></div>
             </article>
 
+            <!-- 2. CSS -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon css-icon">3</div>
                     <span class="skill-number">02</span>
                 </div>
-                <h3>CSS</h3>
-                <p>Dizayn, ranglar va responsiv sahifalar.</p>
-                <div class="skill-tags"><span>Design</span><span>Flexbox</span></div>
+                <h3>CSS3</h3>
+                <p data-i18n="skill_css_desc">Zamonaviy dizayn, Flexbox, Grid, animatsiyalar va responsivlik.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 85%;"></div>
+                </div>
+                <div class="skill-tags"><span>Flexbox</span><span>Grid</span><span>Animations</span></div>
             </article>
 
+            <!-- 3. JS -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon js-icon">JS</div>
                     <span class="skill-number">03</span>
                 </div>
                 <h3>JavaScript</h3>
-                <p>Saytga interaktiv imkoniyatlar qo‘shish.</p>
-                <div class="skill-tags"><span>Logic</span><span>DOM</span></div>
+                <p data-i18n="skill_js_desc">DOM manipulyatsiyasi, ES6+, API so‘rovlari va interaktivlik.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 75%;"></div>
+                </div>
+                <div class="skill-tags"><span>ES6+</span><span>DOM</span><span>Async/Fetch</span></div>
             </article>
 
+            <!-- 4. React -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon react-icon">⚛</div>
                     <span class="skill-number">04</span>
                 </div>
                 <h3>React</h3>
-                <p>Komponentlar yordamida interfeyslar yaratish.</p>
-                <div class="skill-tags"><span>Components</span><span>UI</span></div>
+                <p data-i18n="skill_react_desc">Komponentlar arxitekturasi, Props, State va Hooks asoslari.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 65%;"></div>
+                </div>
+                <div class="skill-tags"><span>Components</span><span>Hooks</span><span>SPA</span></div>
             </article>
 
+            <!-- 5. Python -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon python-icon">Py</div>
                     <span class="skill-number">05</span>
                 </div>
                 <h3>Python</h3>
-                <p>Dasturlar va avtomatlashtirish asoslari.</p>
-                <div class="skill-tags"><span>Programming</span><span>Logic</span></div>
+                <p data-i18n="skill_python_desc">Dasturlash mantiqi, ma'lumotlar tuzilmasi va skriptlar.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 70%;"></div>
+                </div>
+                <div class="skill-tags"><span>Backend</span><span>OOP</span><span>Logic</span></div>
             </article>
 
+            <!-- 6. Telegram Bot -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon telegram-icon">➤</div>
                     <span class="skill-number">06</span>
                 </div>
                 <h3>Telegram Bot</h3>
-                <p>Telegram uchun botlar yaratishni o‘rganish.</p>
-                <div class="skill-tags"><span>Bot API</span><span>Automation</span></div>
+                <p data-i18n="skill_bot_desc">Telegram Bot API, Aiogram va avtomatlashtirilgan xizmatlar.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 75%;"></div>
+                </div>
+                <div class="skill-tags"><span>Bot API</span><span>Aiogram</span><span>Automation</span></div>
             </article>
 
+            <!-- 7. Git -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon git-icon">⑂</div>
                     <span class="skill-number">07</span>
                 </div>
                 <h3>Git</h3>
-                <p>Koddagi o‘zgarishlarni boshqarish.</p>
-                <div class="skill-tags"><span>Version Control</span></div>
+                <p data-i18n="skill_git_desc">Versiyalarni boshqarish, branchlar va commitlar bilan ishlash.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 80%;"></div>
+                </div>
+                <div class="skill-tags"><span>Version Control</span><span>Branching</span></div>
             </article>
 
+            <!-- 8. GitHub -->
             <article class="skill-card reveal">
                 <div class="skill-top">
                     <div class="skill-icon github-icon">GH</div>
                     <span class="skill-number">08</span>
                 </div>
                 <h3>GitHub</h3>
-                <p>Kodni saqlash va loyihalarni ulashish.</p>
-                <div class="skill-tags"><span>Repositories</span><span>Git</span></div>
+                <p data-i18n="skill_github_desc">Kodni saqlash, loyihalarni boshqarish va GitHub Pages.</p>
+                <div class="skill-meter">
+                    <div class="skill-meter-fill" style="width: 80%;"></div>
+                </div>
+                <div class="skill-tags"><span>Repositories</span><span>Collaboration</span></div>
             </article>
         </div>
     </section>
 
-    <!-- LOYIHALAR -->
+    <!-- 4. LOYIHALAR / PROJECTS -->
     <section class="section container" id="projects">
         <div class="section-heading reveal">
-            <p class="eyebrow">MENING ISHLARIM</p>
-            <h2>Tanlangan <span class="gradient-text">loyihalar.</span></h2>
-            <p class="section-description">
-                Bu yerda loyihalaring va kelajakda yaratmoqchi
-                bo‘lgan dasturlaringni ko‘rsatishing mumkin.
+            <p class="eyebrow" data-i18n="projects_eyebrow">MENING ISHLARIM</p>
+            <h2 data-i18n="projects_title">
+                Tanlangan <span class="gradient-text">loyihalar.</span>
+            </h2>
+            <p class="section-description" data-i18n="projects_desc">
+                Bu yerda o‘rganish jarayonida yaratgan va doimiy rivojlantirib borayotgan loyihalarim bilan tanishishingiz mumkin.
             </p>
+        </div>
+
+        <!-- FILTER TABS -->
+        <div class="project-filters reveal" role="tablist">
+            <button type="button" class="filter-btn active" data-filter="all" data-i18n="filter_all">Barchasi</button>
+            <button type="button" class="filter-btn" data-filter="web" data-i18n="filter_web">Frontend / Web</button>
+            <button type="button" class="filter-btn" data-filter="js" data-i18n="filter_js">JavaScript</button>
+            <button type="button" class="filter-btn" data-filter="bot" data-i18n="filter_bot">Python & Bot</button>
         </div>
 
         <div class="projects-grid">
-            <article class="project-card reveal">
+            <!-- 1. Portfolio Website -->
+            <article class="project-card reveal" data-category="web" data-project-id="portfolio">
                 <div class="project-preview preview-one">
                     <div class="preview-circle"></div>
                     <span class="preview-code">&lt;DEV /&gt;</span>
-                    <span class="preview-label">MY FIRST WEBSITE</span>
+                    <span class="preview-label">PORTFOLIO V1.0</span>
+                    <div class="preview-badge" data-i18n="badge_live">Jonli sayt</div>
                 </div>
                 <div class="project-content">
                     <p class="project-category">01 / WEB DEVELOPMENT</p>
-                    <h3>Portfolio Website</h3>
-                    <p>O‘zim haqimda, ko‘nikmalarim va loyihalarim
-                       haqida ma’lumot beruvchi shaxsiy sayt.</p>
+                    <h3 data-i18n="proj1_title">Portfolio Website</h3>
+                    <p data-i18n="proj1_desc">Zamonaviy interfeys, 3 xil til (UZ, RU, EN), qorong‘i va yorug‘ rejim hamda to‘liq responsiv dizaynga ega shaxsiy veb-sayt.</p>
                     <div class="project-tags">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>i18n</span>
                     </div>
-                    <a href="#home" class="project-link">Sayt boshiga qaytish <span>↗</span></a>
+                    <div class="project-actions">
+                        <button type="button" class="btn-card-action open-modal-btn" data-project="portfolio" data-i18n="btn_view_details">
+                            Batafsil ko‘rish <span>↗</span>
+                        </button>
+                    </div>
                 </div>
             </article>
 
-            <article class="project-card reveal">
+            <!-- 2. To-do App -->
+            <article class="project-card reveal" data-category="js" data-project-id="todo">
                 <div class="project-preview preview-two">
                     <div class="todo-window">
                         <span>MY TASKS</span>
-                        <div>✓ HTML o‘rganish</div>
-                        <div>✓ CSS yozish</div>
-                        <div>○ JavaScript o‘rganish</div>
+                        <div class="todo-item done">✓ HTML5 o‘rganish</div>
+                        <div class="todo-item done">✓ CSS3 va Grid yozish</div>
+                        <div class="todo-item pending">○ JavaScript DOM loyihasi</div>
                     </div>
+                    <div class="preview-badge" data-i18n="badge_interactive">Interaktiv</div>
                 </div>
                 <div class="project-content">
                     <p class="project-category">02 / JAVASCRIPT</p>
-                    <h3>To-do App</h3>
-                    <p>Kundalik vazifalarni rejalashtirish uchun
-                       yaratish mumkin bo‘lgan ilova.</p>
+                    <h3 data-i18n="proj2_title">To-do Task Master</h3>
+                    <p data-i18n="proj2_desc">Kundalik vazifalarni rejalashtirish, filtrlash, holatini o‘zgartirish va ma'lumotlarni saqlash imkoniyatiga ega qulay vazifalar ilovasi.</p>
                     <div class="project-tags">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        <span>JavaScript</span><span>LocalStorage</span><span>CSS3</span>
                     </div>
-                    <a href="#contact" class="project-link">Loyiha haqida so‘rash <span>↗</span></a>
+                    <div class="project-actions">
+                        <button type="button" class="btn-card-action open-modal-btn" data-project="todo" data-i18n="btn_view_details">
+                            Batafsil ko‘rish <span>↗</span>
+                        </button>
+                    </div>
                 </div>
             </article>
 
-            <article class="project-card reveal">
+            <!-- 3. Weather App -->
+            <article class="project-card reveal" data-category="js" data-project-id="weather">
                 <div class="project-preview preview-three">
                     <div class="weather-window">
-                        <span>WEATHER</span>
+                        <span>WEATHER APP</span>
                         <div class="weather-sun">☀</div>
-                        <strong>24°</strong>
-                        <small>Namoyish dizayni</small>
+                        <strong>24°C</strong>
+                        <small>Toshkent, Ochiq havo</small>
                     </div>
+                    <div class="preview-badge" data-i18n="badge_api">API Integratsiya</div>
                 </div>
                 <div class="project-content">
                     <p class="project-category">03 / API PRACTICE</p>
-                    <h3>Weather App</h3>
-                    <p>Ob-havo API orqali ma’lumot olishni o‘rganish
-                       uchun loyiha g‘oyasi.</p>
+                    <h3 data-i18n="proj3_title">Weather Forecast App</h3>
+                    <p data-i18n="proj3_desc">Haqiqiy ob-havo API (OpenWeather) orqali shaharlar bo‘yicha harorat, namlik va shamol tezligini real vaqtda ko‘rsatuvchi ilova.</p>
                     <div class="project-tags">
-                        <span>JavaScript</span><span>API</span><span>CSS</span>
+                        <span>Async/Await</span><span>Weather API</span><span>CSS Grid</span>
                     </div>
-                    <a href="#contact" class="project-link">Loyiha haqida so‘rash <span>↗</span></a>
+                    <div class="project-actions">
+                        <button type="button" class="btn-card-action open-modal-btn" data-project="weather" data-i18n="btn_view_details">
+                            Batafsil ko‘rish <span>↗</span>
+                        </button>
+                    </div>
                 </div>
             </article>
 
-            <article class="project-card reveal">
+            <!-- 4. Telegram Bot -->
+            <article class="project-card reveal" data-category="bot" data-project-id="telegram">
                 <div class="project-preview preview-four">
                     <div class="bot-window">
                         <span>TELEGRAM BOT</span>
-                        <div class="bot-message">Salom! 👋</div>
-                        <div class="bot-message">Sizga qanday yordam beray?</div>
+                        <div class="bot-message">Salom, Muhammad! 👋</div>
+                        <div class="bot-message">Sizga qanday yordam bera olaman?</div>
                     </div>
+                    <div class="preview-badge" data-i18n="badge_bot">Python Bot</div>
                 </div>
                 <div class="project-content">
                     <p class="project-category">04 / PYTHON</p>
-                    <h3>Telegram Bot</h3>
-                    <p>Foydalanuvchilarga javob beruvchi Telegram bot
-                       yaratish g‘oyasi.</p>
+                    <h3 data-i18n="proj4_title">Telegram Assistant Bot</h3>
+                    <p data-i18n="proj4_desc">Foydalanuvchilarga avtomatlashtirilgan tarzda tezkor ma'lumot yetkazuvchi, tugmali interfeysga ega ko‘p funksiyali Telegram bot.</p>
                     <div class="project-tags">
-                        <span>Python</span><span>Telegram API</span>
+                        <span>Python</span><span>Telegram Bot API</span><span>Aiogram</span>
                     </div>
-                    <a href="#contact" class="project-link">Loyiha haqida so‘rash <span>↗</span></a>
+                    <div class="project-actions">
+                        <button type="button" class="btn-card-action open-modal-btn" data-project="telegram" data-i18n="btn_view_details">
+                            Batafsil ko‘rish <span>↗</span>
+                        </button>
+                    </div>
                 </div>
             </article>
         </div>
     </section>
 
-    <!-- ALOQA -->
+    <!-- 5. ALOQA / CONTACT -->
     <section class="section container contact" id="contact">
         <div class="contact-box reveal">
-            <div class="contact-decoration">✳</div>
-            <p class="eyebrow">ALOQA</p>
-            <h2>Birgalikda ajoyib<br>
+            <div class="contact-decoration" aria-hidden="true">✳</div>
+            <p class="eyebrow" data-i18n="contact_eyebrow">ALOQA</p>
+            <h2 data-i18n="contact_title">
+                Birgalikda ajoyib<br>
                 <span class="gradient-text">narsa yaratamiz!</span>
             </h2>
-            <p class="contact-description">
-                Men bilan bog‘laning yoki loyihalarimni
-                GitHub orqali kuzatib boring.
+            <p class="contact-description" data-i18n="contact_desc">
+                Sizda qiziqarli g‘oya, taklif yoki savollar bormi? Men bilan bog‘laning yoki xabar qoldiring, albatta javob beraman!
             </p>
 
+            <!-- QUICK CONTACT INFO BADGES -->
+            <div class="contact-info-strip">
+                <div class="contact-badge-item" id="copyEmailBadge" title="Nusxa olish uchun bosing">
+                    <span class="badge-icon">✉</span>
+                    <span class="badge-text">muhammad.dev@example.com</span>
+                    <span class="copy-hint" data-i18n="hint_copy">Nusxalash</span>
+                </div>
+                <div class="contact-badge-item">
+                    <span class="badge-icon">📍</span>
+                    <span class="badge-text" data-i18n="location_text">Toshkent, O‘zbekiston</span>
+                </div>
+                <div class="contact-badge-item">
+                    <span class="badge-icon">⚡</span>
+                    <span class="badge-text" data-i18n="response_time">Javob vaqti: tezkor</span>
+                </div>
+            </div>
+
+            <!-- CONTACT FORM -->
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="formName" data-i18n="form_label_name">Ismingiz:</label>
+                        <input
+                            type="text"
+                            id="formName"
+                            name="name"
+                            class="form-input"
+                            placeholder="Masalan: Azizbek"
+                            required
+                        >
+                        <span class="form-error" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formEmail" data-i18n="form_label_email">Email yoki Telegram:</label>
+                        <input
+                            type="text"
+                            id="formEmail"
+                            name="email"
+                            class="form-input"
+                            placeholder="Email yoki @username"
+                            required
+                        >
+                        <span class="form-error" id="emailError"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="formMessage" data-i18n="form_label_message">Xabaringiz:</label>
+                    <textarea
+                        id="formMessage"
+                        name="message"
+                        rows="4"
+                        class="form-input form-textarea"
+                        placeholder="Loyihangiz yoki taklifingiz haqida yozing..."
+                        required
+                    ></textarea>
+                    <span class="form-error" id="messageError"></span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                        <span class="btn-text" data-i18n="form_btn_send">Xabarni yuborish ✉</span>
+                        <span class="btn-spinner" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+
             <div class="contact-buttons">
-                <a class="btn btn-primary"
-                   href="https://github.com/" target="_blank"
-                   rel="noopener noreferrer">GitHub profilim ↗</a>
                 <a class="btn btn-outline"
-                   href="https://t.me/" target="_blank"
-                   rel="noopener noreferrer">Telegram ✈</a>
+                   href="https://github.com/muhammadabdullaye549" target="_blank"
+                   rel="noopener noreferrer" data-i18n="btn_github_profile">
+                    GitHub profilim ↗
+                </a>
                 <a class="btn btn-outline"
-                   href="mailto:your-email@example.com">Email yozish ✉</a>
+                   href="https://t.me/muhammad_abdullayev" target="_blank"
+                   rel="noopener noreferrer" data-i18n="btn_telegram_write">
+                    Telegram orqali yozish ✈
+                </a>
             </div>
 
             <div class="contact-note">
                 <span class="status-dot"></span>
-                Yangi bilimlar sari harakatdaman
+                <span data-i18n="contact_status_note">Yangi bilimlar va hamkorlik uchun doim ochiqman</span>
             </div>
         </div>
     </section>
 </main>
 
+<!-- FOOTER -->
 <footer class="footer">
-    <!-- <div class="container footer-inner">
-        <a href="#home" class="logo">Muhammad<span>.</span></a>
-        <p>© <span id="year">2026</span> Muhammad Abdullayev</p>
-        <a href="#home" class="back-top">Yuqoriga qaytish ↑</a>
-    </div> -->
+    <div class="container footer-inner">
+        <div class="footer-left">
+            <a href="#home" class="logo">
+                Muhammad <span class="logo-accent">Abdullayev</span>
+            </a>
+            <p class="footer-copy">
+                © <span id="year">2026</span> Muhammad Abdullayev. <span data-i18n="footer_rights">Barcha huquqlar himoyalangan.</span>
+            </p>
+        </div>
+
+        <ul class="footer-nav">
+            <li><a href="#home" data-i18n="nav_home">Bosh sahifa</a></li>
+            <li><a href="#about" data-i18n="nav_about">Men haqimda</a></li>
+            <li><a href="#skills" data-i18n="nav_skills">Ko‘nikmalar</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">Loyihalar</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Aloqa</a></li>
+        </ul>
+
+        <div class="footer-right">
+            <a href="#home" class="back-top" id="backToTop" aria-label="Yuqoriga qaytish">
+                <span data-i18n="footer_back_top">Yuqoriga qaytish</span> ↑
+            </a>
+        </div>
+    </div>
 </footer>
+
+<!-- FLOATING SCROLL-TO-TOP BUTTON -->
+<button type="button" class="floating-back-top" id="floatingBackTop" aria-label="Yuqoriga chiqish" title="Yuqoriga chiqish">
+    ↑
+</button>
+
+<!-- PROJECT DETAILS MODAL -->
+<div class="project-modal-backdrop" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="project-modal-card">
+        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Yopish">✕</button>
+        <div class="modal-body" id="modalBody">
+            <!-- Dynamically populated by script.js -->
+        </div>
+    </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
 <script src="script.js"></script>
 </body>
