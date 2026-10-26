@@ -213,6 +213,11 @@ html[data-theme="light"] .bg-glow {
     transition: color 0.3s ease;
 }
 
+.nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -1752,19 +1757,25 @@ html[data-theme="light"] .about-icon {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        min-height: 68px;
+    }
+
     .menu-toggle {
         display: flex;
     }
 
     .nav-menu-wrapper {
         position: fixed;
-        top: 74px;
+        top: 68px;
         left: 0;
         right: 0;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
         background: var(--card);
         border-bottom: 1px solid var(--border);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-        padding: 16px 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        padding: 16px 20px 24px;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
@@ -1786,9 +1797,10 @@ html[data-theme="light"] .about-icon {
 
     .nav-link {
         display: block;
-        padding: 10px 12px;
+        padding: 12px 14px;
         border-radius: var(--radius-sm);
-        font-size: 14px;
+        font-size: 15px;
+        font-weight: 600;
     }
 
     .nav-link:hover, .nav-link.active {
@@ -1799,8 +1811,12 @@ html[data-theme="light"] .about-icon {
         display: none;
     }
 
+    .hero-visual {
+        max-width: 320px;
+    }
+
     .floating-card {
-        padding: 9px 12px;
+        padding: 8px 12px;
     }
 
     .floating-card strong {
@@ -1812,10 +1828,12 @@ html[data-theme="light"] .about-icon {
     }
 
     .floating-top {
+        top: 6%;
         right: 0;
     }
 
     .floating-bottom {
+        bottom: 6%;
         left: 0;
     }
 
@@ -1838,34 +1856,181 @@ html[data-theme="light"] .about-icon {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
     .container {
-        width: calc(100% - 30px);
+        width: calc(100% - 24px);
     }
 
-    .hero h1 {
-        font-size: 34px;
+    .navbar {
+        min-height: 60px;
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .header-actions {
+        gap: 6px;
+    }
+
+    .lang-btn {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .menu-toggle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .hero {
+        padding-top: 24px;
+        gap: 28px;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+        line-height: 1.18;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.6;
     }
 
     .hero-buttons {
         flex-direction: column;
+        width: 100%;
+        gap: 10px;
     }
 
     .hero-buttons .btn {
         width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 13px 20px;
+    }
+
+    .hero-socials {
+        flex-wrap: wrap;
+        font-size: 12px;
+    }
+
+    .hero-visual {
+        max-width: 270px;
+    }
+
+    .floating-card {
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .floating-card strong {
+        font-size: 10px;
+    }
+
+    .floating-card small {
+        font-size: 8.5px;
+    }
+
+    .floating-top {
+        top: 2%;
+        right: -3%;
+    }
+
+    .floating-bottom {
+        bottom: 2%;
+        left: -3%;
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .section-description {
+        font-size: 13.5px;
+    }
+
+    .about-card {
+        padding: 20px 16px;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
-    .stats-bar {
+    .skill-card {
+        padding: 18px 16px;
+    }
+
+    .project-preview {
+        height: 170px;
+    }
+
+    .project-content {
+        padding: 20px 16px;
+    }
+
+    .contact-box {
+        padding: 30px 16px;
+        border-radius: 18px;
+    }
+
+    .contact-box h2 {
+        font-size: 22px;
+    }
+
+    .contact-description {
+        font-size: 13.5px;
+    }
+
+    .contact-buttons {
         flex-direction: column;
-        gap: 16px;
+        width: 100%;
+        gap: 10px;
     }
 
-    .stat-divider {
-        display: none;
+    .contact-buttons .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .floating-back-top {
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 18px);
+    }
+
+    .logo {
+        font-size: 14.5px;
+    }
+
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-visual {
+        max-width: 240px;
     }
 }
 
