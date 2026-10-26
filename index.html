@@ -13,35 +13,41 @@
 
     <header class="header">
         <nav class="navbar container">
-            <a href="#home" class="logo">Muhammad <span>Abdullayev</span></a>
+            <a href="#home" class="logo">Muhammad <span class="logo-accent">Abdullayev</span></a>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Menyuni ochish" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-
-            <ul class="nav-links" id="navLinks">
-                <li><a class="nav-link active" href="#home">Bosh sahifa</a></li>
-                <li><a class="nav-link" href="#about">Men haqimda</a></li>
-                <li><a class="nav-link" href="#skills">Ko‘nikmalar</a></li>
-                <li><a class="nav-link" href="#projects">Loyihalar</a></li>
-                <li><a class="nav-link" href="#contact">Aloqa</a></li>
-            </ul>
-
-            <!-- TIL TANLASH -->
-            <div class="language-switch">
-                <button type="button" data-lang="uz" class="lang-btn active">UZ</button>
-                <button type="button" data-lang="ru" class="lang-btn">RU</button>
-                <button type="button" data-lang="en" class="lang-btn">EN</button>
+            <div class="nav-menu-wrapper" id="navMenuWrapper">
+                <ul class="nav-links" id="navLinks">
+                    <li><a class="nav-link active" href="#home">Bosh sahifa</a></li>
+                    <li><a class="nav-link" href="#about">Men haqimda</a></li>
+                    <li><a class="nav-link" href="#skills">Ko‘nikmalar</a></li>
+                    <li><a class="nav-link" href="#projects">Loyihalar</a></li>
+                    <li><a class="nav-link" href="#contact">Aloqa</a></li>
+                </ul>
             </div>
 
-            <!-- RANG REJIMI -->
-            <button type="button" id="themeToggle" class="theme-toggle" aria-label="Rang rejimini almashtirish"
-                title="Rangni almashtirish">
-                🌙
-            </button>
+            <div class="header-actions">
+                <!-- TIL TANLASH -->
+                <div class="language-switch">
+                    <button type="button" data-lang="uz" class="lang-btn active">UZ</button>
+                    <button type="button" data-lang="ru" class="lang-btn">RU</button>
+                    <button type="button" data-lang="en" class="lang-btn">EN</button>
+                </div>
 
+                <!-- RANG REJIMI -->
+                <button type="button" id="themeToggle" class="theme-toggle" aria-label="Rang rejimini almashtirish"
+                    title="Rangni almashtirish">
+                    <span class="theme-icon">🌙</span>
+                </button>
+
+                <!-- MOBIL BURGER TUGMASI -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Menyuni ochish" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
+
+    <div class="menu-backdrop" id="menuBackdrop"></div>
 
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
@@ -393,12 +399,17 @@
     </main>
 
     <footer class="footer">
-        <!-- <div class="container footer-inner">
-        <a href="#home" class="logo">Muhammad<span>.</span></a>
-        <p>© <span id="year">2026</span> Muhammad Abdullayev</p>
-        <a href="#home" class="back-top">Yuqoriga qaytish ↑</a>
-    </div> -->
+        <div class="container footer-inner">
+            <a href="#home" class="logo">Muhammad <span class="logo-accent">Abdullayev</span></a>
+            <p>© <span id="year">2026</span> Muhammad Abdullayev. Barcha huquqlar himoyalangan.</p>
+            <a href="#home" class="back-top">Yuqoriga qaytish ↑</a>
+        </div>
     </footer>
+
+    <!-- QALQIB CHIQADIGAN YUQORIGA QAYTISH TUGMASI -->
+    <button type="button" id="floatingBackTop" class="floating-back-top" aria-label="Yuqoriga qaytish" title="Yuqoriga">
+        ↑
+    </button>
 
     <script src="script.js"></script>
 </body>
